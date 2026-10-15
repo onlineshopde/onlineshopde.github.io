@@ -407,29 +407,28 @@ p { margin: 0; }
 .footer-brand .logo-placeholder { width: 180px; height: 48px; font-size: 11px; }
 .footer-brand img { display: block; align-self: flex-start; width: 200px; max-width: 100%; height: auto; }
 @media (max-width: 520px) { .footer-brand img { width: 170px; } }
-/* Hinweis Versandhandels-Register (Text-Link, bewusst ohne EU-Logo) */
-.footer-register {
-  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 18px 28px;
-  margin-top: 56px; padding: 26px 30px;
-  background: var(--ground-2); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: var(--radius);
+/* Nachweis Versandhandels-Register (kompakt; EU-Logo nur per Original-Code des BfArM) */
+.footer-trust {
+  display: grid; grid-template-columns: minmax(0, 600px) auto; grid-template-areas: "head badge" "more badge";
+  justify-content: start; align-items: center; column-gap: 32px; row-gap: 4px;
+  margin-top: 48px; padding-top: 24px; border-top: 1px solid #e6e3df;
 }
-.register-icon {
-  display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%;
-  background: #fff; border: 1px solid var(--line); color: var(--accent);
-}
-.register-label { margin: 0 0 6px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-2); }
-.register-statement { font-family: var(--serif); font-size: 22px; line-height: 1.35; color: var(--ink); text-wrap: balance; }
-.register-meta { margin-top: 10px; max-width: 700px; font-size: 14px; line-height: 1.6; color: var(--muted-2); }
-.register-link { white-space: nowrap; }
-@media (max-width: 900px) {
-  .footer-register { grid-template-columns: auto minmax(0, 1fr); }
-  .register-link { grid-column: 2; justify-self: start; }
-}
+.trust-head { grid-area: head; }
+.trust-more { grid-area: more; }
+.trust-badge { grid-area: badge; align-self: center; padding: 12px; line-height: 0; }  /* 10 % Schutzzone bei 121 px */
+.trust-badge img { width: 121px; height: auto; }                                     /* Mindestbreite laut BfArM */
+.trust-label { margin: 0 0 4px; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted-2); }
+.trust-main { font-size: 15px; line-height: 1.5; color: var(--text); }
+.trust-main abbr[title] { text-decoration: none; }
+.trust-vr { margin-left: 10px; padding-left: 10px; border-left: 1px solid var(--line); font-size: 13px; color: var(--muted-2); white-space: nowrap; }
+.trust-fine { font-size: 13px; line-height: 1.55; color: var(--muted-2); }
+.trust-link { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; white-space: nowrap; font-size: 14px; font-weight: 600; color: var(--accent); text-underline-offset: 3px; }
+.trust-link:hover { color: var(--accent-dark); }
+.footer-trust + .footer-bottom { margin-top: 24px; }
 @media (max-width: 560px) {
-  .footer-register { grid-template-columns: minmax(0, 1fr); padding: 22px 20px; margin-top: 44px; }
-  .register-icon { width: 44px; height: 44px; }
-  .register-link { grid-column: 1; white-space: normal; text-align: left; }
-  .register-statement { font-size: 20px; }
+  .footer-trust { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "head badge" "more more"; column-gap: 12px; row-gap: 8px; margin-top: 40px; }
+  .trust-label { font-size: 11px; letter-spacing: 0.1em; }
+  .trust-vr { display: block; margin: 2px 0 0; padding: 0; border: 0; }
 }
 .footer-bottom {
   display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px;
